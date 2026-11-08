@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#debug_a_risc-v_core_over_two_pins" class="md-skip">
+        <a href="#swd_-_open_two-wire_debug_for_risc-v_soft_cores" class="md-skip">
           Skip to content
         </a>
       
@@ -113,7 +113,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              SWD - Open two-wire debug for RISC-V soft cores
             
           </span>
         </div>
@@ -201,7 +201,7 @@
   
     
   
-  Home
+  SWD - Open two-wire debug for RISC-V soft cores
 
       </a>
     </li>
@@ -361,7 +361,7 @@
           
   
   <span class="md-ellipsis">
-    Home
+    SWD - Open two-wire debug for RISC-V soft cores
   </span>
   
 
@@ -372,7 +372,7 @@
         
   
   <span class="md-ellipsis">
-    Home
+    SWD - Open two-wire debug for RISC-V soft cores
   </span>
   
 
@@ -394,14 +394,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the_ratified_debug_specification_defines_only_a_jtag_transport" class="md-nav__link">
+  <a href="#debug_a_risc-v_core_over_two_pins" class="md-nav__link">
     <span class="md-ellipsis">
-      The ratified debug specification defines only a JTAG transport.
+      Debug a RISC-V core over two pins.
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The ratified debug specification defines only a JTAG transport.">
+    <nav class="md-nav" aria-label="Debug a RISC-V core over two pins.">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why_this_exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this exists
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#what_changes" class="md-nav__link">
@@ -430,12 +439,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#what_a_risc-v_processor_needs_to_implement_a_debug_interface" class="md-nav__link">
     <span class="md-ellipsis">
       What a RISC-V processor needs to implement a debug interface.
@@ -446,45 +450,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#debug_transport_module" class="md-nav__link">
+  <a href="#debug_transport_module_-_this_ip" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug Transport Module
+      Debug Transport Module - This IP
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#debug_module" class="md-nav__link">
+  <a href="#debug_module_-_from_cpu_provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug Module
+      Debug Module - From CPU Provider
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#the_hart" class="md-nav__link">
-    <span class="md-ellipsis">
-      The hart
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#trigger_module" class="md-nav__link">
+  <a href="#the_hart_-_from_cpu_provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Trigger Module
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reset
+      The hart - From CPU Provider
     </span>
   </a>
   
@@ -514,18 +505,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what_this_project_supplies_and_what_you_already_have" class="md-nav__link">
+  <a href="#what_this_ip_supplies_and_what_you_already_have" class="md-nav__link">
     <span class="md-ellipsis">
-      What this project supplies, and what you already have.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merged_upstream_running_on_fpga_not_yet_in_silicon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merged upstream, running on FPGA, not yet in silicon.
+      What this IP supplies, and what you already have.
     </span>
   </a>
   
@@ -599,15 +581,6 @@
   <a href="#what_does_it_cost_in_area" class="md-nav__link">
     <span class="md-ellipsis">
       What does it cost in area?
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_an_exposed_swd_port_a_security_problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Is an exposed SWD port a security problem?
     </span>
   </a>
   
@@ -1110,14 +1083,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the_ratified_debug_specification_defines_only_a_jtag_transport" class="md-nav__link">
+  <a href="#debug_a_risc-v_core_over_two_pins" class="md-nav__link">
     <span class="md-ellipsis">
-      The ratified debug specification defines only a JTAG transport.
+      Debug a RISC-V core over two pins.
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="The ratified debug specification defines only a JTAG transport.">
+    <nav class="md-nav" aria-label="Debug a RISC-V core over two pins.">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why_this_exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why this exists
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#what_changes" class="md-nav__link">
@@ -1146,12 +1128,7 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#what_a_risc-v_processor_needs_to_implement_a_debug_interface" class="md-nav__link">
     <span class="md-ellipsis">
       What a RISC-V processor needs to implement a debug interface.
@@ -1162,45 +1139,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#debug_transport_module" class="md-nav__link">
+  <a href="#debug_transport_module_-_this_ip" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug Transport Module
+      Debug Transport Module - This IP
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#debug_module" class="md-nav__link">
+  <a href="#debug_module_-_from_cpu_provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Debug Module
+      Debug Module - From CPU Provider
     </span>
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#the_hart" class="md-nav__link">
-    <span class="md-ellipsis">
-      The hart
-    </span>
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#trigger_module" class="md-nav__link">
+  <a href="#the_hart_-_from_cpu_provider" class="md-nav__link">
     <span class="md-ellipsis">
-      Trigger Module
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#reset" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reset
+      The hart - From CPU Provider
     </span>
   </a>
   
@@ -1230,18 +1194,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what_this_project_supplies_and_what_you_already_have" class="md-nav__link">
+  <a href="#what_this_ip_supplies_and_what_you_already_have" class="md-nav__link">
     <span class="md-ellipsis">
-      What this project supplies, and what you already have.
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#merged_upstream_running_on_fpga_not_yet_in_silicon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Merged upstream, running on FPGA, not yet in silicon.
+      What this IP supplies, and what you already have.
     </span>
   </a>
   
@@ -1320,15 +1275,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#is_an_exposed_swd_port_a_security_problem" class="md-nav__link">
-    <span class="md-ellipsis">
-      Is an exposed SWD port a security problem?
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1361,51 +1307,24 @@
   
 
 
-<p>SWD · RISC-V <a href="#why">Why</a> <a href="#needs">What your core needs</a> <a href="#supplies">What this supplies</a> <a href="#status">Status</a> <a href="#evaluate">Evaluate</a></p>
-<p>Proposal · Open two-wire debug for RISC-V soft cores</p>
-<h1 id="debug_a_risc-v_core_over_two_pins">Debug a RISC-V core over two pins.<a class="headerlink" href="#debug_a_risc-v_core_over_two_pins" title="Permanent link">&para;</a></h1>
-<p>An Arm Serial Wire Debug front-end for VexRiscv and VexiiRiscv, merged upstream and driving the same RISC-V DebugBus the JTAG DTM already uses. The Debug Module and the CPU are unchanged.</p>
-<p>Funded by NLnet NGI0 Commons Fund · grant 2025-02-159</p>
-<p>SWD write transaction, as the target sees it</p>
-<p><strong>1</strong>Start</p>
-<p><strong>A</strong>APnDP</p>
-<p><strong>W</strong>RnW</p>
-<p><strong>A2</strong>addr</p>
-<p><strong>A3</strong>addr</p>
-<p><strong>P</strong>parity</p>
-<p><strong>0</strong>Stop</p>
-<p><strong>1</strong>Park</p>
-<p><strong>→</strong>Trn</p>
-<p><strong>ACK</strong>3 bits</p>
-<p><strong>←</strong>Trn</p>
-<p><strong>DATA<script type="math/tex; mode=display">31:0</script></strong>LSB first</p>
-<p><strong>P</strong>parity</p>
-<p>host drives SWDIO target drives SWDIO turnaround SWCLK supplied by the probe</p>
-<p>Pins2 versus 4 to 5</p>
-<p>UpstreamSpinalHDL, VexRiscv, VexiiRiscv, LiteX</p>
-<p>Validated onArtix-7, GDB over CMSIS-DAP</p>
-<p>SiliconNot yet taped out</p>
-<p><a id="why"></a></p>
-<p>01 · Why this exists</p>
-<h2 id="the_ratified_debug_specification_defines_only_a_jtag_transport">The ratified debug specification defines only a JTAG transport.<a class="headerlink" href="#the_ratified_debug_specification_defines_only_a_jtag_transport" title="Permanent link">&para;</a></h2>
+<h1 id="swd_-_open_two-wire_debug_for_risc-v_soft_cores">SWD -  Open two-wire debug for RISC-V soft cores<a class="headerlink" href="#swd_-_open_two-wire_debug_for_risc-v_soft_cores" title="Permanent link">&para;</a></h1>
+<h2 id="debug_a_risc-v_core_over_two_pins">Debug a RISC-V core over two pins.<a class="headerlink" href="#debug_a_risc-v_core_over_two_pins" title="Permanent link">&para;</a></h2>
+<p>An Arm Serial Wire Debug front-end working on RISC-V DebugBus that JTAG DTM already uses. The Debug Module and the CPU are unchanged.</p>
+<h3 id="why_this_exists">Why this exists<a class="headerlink" href="#why_this_exists" title="Permanent link">&para;</a></h3>
+<p><strong>The ratified debug specification defines only a JTAG transport.</strong></p>
 <p>JTAG needs TCK, TMS, TDI and TDO, plus TRST where a reset line is wanted. Serial Wire Debug needs SWCLK and SWDIO. On a pin-constrained ASIC or a small FPGA board those two or three pins are contested, and on-chip debug is usually what gets cut.</p>
-<p>Adding SWD to the RISC-V Debug Specification was requested and never adopted, so Raspberry Pi shipped it as a custom Debug Transport Module, which the specification explicitly permits. This project takes the same route for the VexRiscv family, in the open, under the upstream licences.</p>
-<p>Stated precisely</p>
-<p>This implements the RISC-V Debug Specification with a custom SWD transport. It is not an unqualified conformance claim, because no ratified version of the specification defines an SWD DTM. Describe it that way in any brief or datasheet.</p>
-<p><a href="https://github.com/riscv/riscv-debug-spec/issues/785">riscv-debug-spec issue #785</a> tracks the original request.</p>
-<p>02 · At a glance</p>
+<p>Adding SWD to the RISC-V Debug Specification was requested and never adopted. <a href="https://github.com/riscv/riscv-debug-spec/issues/785">riscv-debug-spec issue #785</a> tracks the original request.</p>
+<p><a href="https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html">Raspberry Pi</a> shipped it as a custom Debug Transport Module, which the specification explicitly permits.</p>
+<p>This project takes the same route for any Riscv Processor, in the open, under the upstream licences.This implements the RISC-V Debug Specification with a custom SWD transport.</p>
 <h3 id="what_changes">What changes<a class="headerlink" href="#what_changes" title="Permanent link">&para;</a></h3>
 <p>A new transport front-end: wire-level PHY, SW-DP register file, and a DMI gateway with clock-domain crossing. Two pads instead of four or five.</p>
 <h3 id="what_does_not_change">What does not change<a class="headerlink" href="#what_does_not_change" title="Permanent link">&para;</a></h3>
 <p>The Debug Module and the hart. Both are transport-agnostic in the specification, so a core that already has spec-compliant debug needs no redesign.</p>
 <h3 id="what_you_get_back">What you get back<a class="headerlink" href="#what_you_get_back" title="Permanent link">&para;</a></h3>
 <p>Stock GDB behaviour. Halt, examine registers and memory, set breakpoints, single-step, load code, all over an off-the-shelf CMSIS-DAP probe.</p>
-<p><a id="needs"></a></p>
-<p>03 · Requirements</p>
-<h2 id="what_a_risc-v_processor_needs_to_implement_a_debug_interface">What a RISC-V processor needs to implement a debug interface.<a class="headerlink" href="#what_a_risc-v_processor_needs_to_implement_a_debug_interface" title="Permanent link">&para;</a></h2>
-<p>Seven layers. Layers 2 and 3 are transport-agnostic, which is the reason adding SWD meant writing a front-end rather than touching the core.</p>
-<p>01</p>
-<h3 id="debug_transport_module">Debug Transport Module<a class="headerlink" href="#debug_transport_module" title="Permanent link">&para;</a></h3>
+<h3 id="what_a_risc-v_processor_needs_to_implement_a_debug_interface">What a RISC-V processor needs to implement a debug interface.<a class="headerlink" href="#what_a_risc-v_processor_needs_to_implement_a_debug_interface" title="Permanent link">&para;</a></h3>
+<p>Debug Bus in RISC-V has provision to be transport-agnostic, which is the reason adding SWD meant writing a front-end rather than touching the core.</p>
+<h4 id="debug_transport_module_-_this_ip">Debug Transport Module - This IP<a class="headerlink" href="#debug_transport_module_-_this_ip" title="Permanent link">&para;</a></h4>
 <p>Converts a wire protocol into Debug Module Interface reads and writes. The specification defines a JTAG DTM with <code>IDCODE</code>, <code>dtmcs</code> and <code>dmi</code> registers, and permits custom transports.</p>
 <table>
 <thead>
@@ -1433,8 +1352,7 @@
 </tr>
 </tbody>
 </table>
-<p>02</p>
-<h3 id="debug_module">Debug Module<a class="headerlink" href="#debug_module" title="Permanent link">&para;</a></h3>
+<h4 id="debug_module_-_from_cpu_provider">Debug Module - From CPU Provider<a class="headerlink" href="#debug_module_-_from_cpu_provider" title="Permanent link">&para;</a></h4>
 <p>A DMI slave holding the debug register file. Without at least one of a Program Buffer or System Bus Access, a debugger can read registers but not memory.</p>
 <table>
 <thead>
@@ -1488,8 +1406,8 @@
 </tbody>
 </table>
 <p>03</p>
-<h3 id="the_hart">The hart<a class="headerlink" href="#the_hart" title="Permanent link">&para;</a></h3>
-<p>The layer most often underestimated. Debug Mode is a distinct operating mode above M-mode, with its own entry paths, register set and exit instruction.</p>
+<h3 id="the_hart_-_from_cpu_provider">The hart - From CPU Provider<a class="headerlink" href="#the_hart_-_from_cpu_provider" title="Permanent link">&para;</a></h3>
+<p>Can be single or multiple HARTs. Debug Mode is a distinct operating mode above M-mode, with its own entry paths, register set and exit instruction.</p>
 <table>
 <thead>
 <tr>
@@ -1541,64 +1459,6 @@
 </tr>
 </tbody>
 </table>
-<p>04</p>
-<h3 id="trigger_module">Trigger Module<a class="headerlink" href="#trigger_module" title="Permanent link">&para;</a></h3>
-<p>Optional in the specification. Without it there are no hardware breakpoints, which means no breakpoints in ROM or flash and no watchpoints. Each trigger costs comparator area, which is why implementations ship two to four rather than sixteen.</p>
-<table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Need</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>tselect</code>, <code>tdata1..3</code>, <code>tinfo</code></td>
-<td>optional</td>
-<td>Trigger register interface</td>
-</tr>
-<tr>
-<td>Address or data match trigger</td>
-<td>optional</td>
-<td>mcontrol class. The minimum for a usable hardware breakpoint</td>
-</tr>
-</tbody>
-</table>
-<p>05</p>
-<h3 id="reset">Reset<a class="headerlink" href="#reset" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Element</th>
-<th>Need</th>
-<th>Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ndmreset</td>
-<td>required</td>
-<td>Resets the system but not the Debug Module</td>
-</tr>
-<tr>
-<td>hartreset</td>
-<td>optional</td>
-<td>Per-hart reset</td>
-</tr>
-<tr>
-<td>Halt-on-reset resethaltreq</td>
-<td>in practice required</td>
-<td>The only way to debug from the first instruction. Frequently omitted, then missed during boot bring-up</td>
-</tr>
-<tr>
-<td>Transport reset</td>
-<td>required</td>
-<td>SWD has no reset wire. Recovery is the line-reset sequence on SWDIO: at least 50 clocks high, then idle cycles</td>
-</tr>
-</tbody>
-</table>
-<p>06</p>
 <h3 id="what_the_soc_integrator_must_provide">What the SoC integrator must provide<a class="headerlink" href="#what_the_soc_integrator_must_provide" title="Permanent link">&para;</a></h3>
 <p>The layer where SWD diverges from JTAG, and the one to settle before committing to a hardened flow.</p>
 <table>
@@ -1637,7 +1497,6 @@
 </tr>
 </tbody>
 </table>
-<p>07</p>
 <h3 id="host_side">Host side<a class="headerlink" href="#host_side" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -1667,7 +1526,7 @@
 </table>
 <p><a id="supplies"></a></p>
 <p>04 · Division of labour</p>
-<h2 id="what_this_project_supplies_and_what_you_already_have">What this project supplies, and what you already have.<a class="headerlink" href="#what_this_project_supplies_and_what_you_already_have" title="Permanent link">&para;</a></h2>
+<h2 id="what_this_ip_supplies_and_what_you_already_have">What this IP supplies, and what you already have.<a class="headerlink" href="#what_this_ip_supplies_and_what_you_already_have" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
 <tr>
@@ -1678,106 +1537,41 @@
 </thead>
 <tbody>
 <tr>
-<td>01 Transport (DTM)</td>
+<td>Transport (DTM)</td>
 <td>this project</td>
 <td>SwdPhy, SwdDp register file, DMI gateway with clock crossing</td>
 </tr>
 <tr>
-<td>02 Debug Module</td>
+<td>Debug Module</td>
 <td>unchanged</td>
 <td>Existing VexRiscv Debug Module, reached over the same DebugBus</td>
 </tr>
 <tr>
-<td>03 Hart support</td>
+<td>Hart support</td>
 <td>unchanged</td>
 <td>Debug Mode, debug CSRs and park loop already in the core</td>
 </tr>
 <tr>
-<td>04 Triggers</td>
-<td>unchanged</td>
-<td>Whatever the core configuration already provides</td>
-</tr>
-<tr>
-<td>05 Reset</td>
-<td>partly this project</td>
-<td>SWDIO line-reset handling in the transport; system reset unchanged</td>
-</tr>
-<tr>
-<td>06 SoC integration</td>
+<td>SoC integration</td>
 <td>this project</td>
 <td>LiteX <code>--with-swd-debug</code> brings SWDIO out to SoC pins; ElemRV integration merged</td>
 </tr>
 <tr>
-<td>07 Host side</td>
+<td>Host side</td>
 <td>partly, see caveat</td>
 <td>OpenOCD gateway and Black Magic Probe support</td>
 </tr>
 </tbody>
 </table>
-<p>Open caveat</p>
-<p>Upstream OpenOCD does not support a RISC-V target behind an Arm SW-DP. Stock OpenOCD reaches raw-AP; the full RISC-V and GDB path currently needs a fork, as it does for Raspberry Pi. Whether this can be upstreamed rather than carried downstream is an open question and a good reason to talk if you build debug tooling.</p>
-<p><a id="status"></a></p>
-<p>05 · Status</p>
-<h2 id="merged_upstream_running_on_fpga_not_yet_in_silicon">Merged upstream, running on FPGA, not yet in silicon.<a class="headerlink" href="#merged_upstream_running_on_fpga_not_yet_in_silicon" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Result</th>
-<th>Upstream</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Core SWD implementation</td>
-<td>SWD DTM wired end to end, verified in simulation</td>
-<td>SpinalHDL #1956, #1966</td>
-</tr>
-<tr>
-<td>VexRiscv</td>
-<td>SWD interface in the core and derivatives</td>
-<td>#483, #499, #500</td>
-</tr>
-<tr>
-<td>VexiiRiscv</td>
-<td>Same interface in the newer core family</td>
-<td>#184, #188</td>
-</tr>
-<tr>
-<td>LiteX SoC integration</td>
-<td><code>--with-cpu-jtag-debug</code> and <code>--with-swd-debug</code>; three-wire SWDIO to SoC pins</td>
-<td>LiteX #2572, #2669; linux-on-litex-vexriscv #459</td>
-</tr>
-<tr>
-<td>Commercial SoC</td>
-<td>SWDIO exposed on ElemRV</td>
-<td>elements-nafarr #72, elements-zibal #62</td>
-</tr>
-<tr>
-<td>Host tooling</td>
-<td>Raw-AP on stock OpenOCD; full RISC-V and GDB on a fork; Black Magic Probe support</td>
-<td>openocd/vexriscv-gateway; Black Magic #2322</td>
-</tr>
-<tr>
-<td>Hardware</td>
-<td>Digilent Arty, MCU-Link CMSIS-DAP probe on a Pmod header. OpenOCD examine, GDB load, break and stepi. JTAG through BSCANE2 for comparison</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<p>Remaining work is the full regression matrix and documentation. Silicon validation on an open process is the next step and is not yet funded.</p>
-<p><a id="evaluate"></a></p>
-<p>06 · Evaluation</p>
 <h2 id="what_an_evaluation_looks_like">What an evaluation looks like.<a class="headerlink" href="#what_an_evaluation_looks_like" title="Permanent link">&para;</a></h2>
 <p>The fastest route for a board or SoC team is a LiteX build, because two-wire debug is one flag away.</p>
 <ul>
-<li>Build a LiteX SoC with <code>--with-swd-debug</code> for your target board.</li>
+<li>Build a SoC with this SWD IP for your target board.</li>
 <li>Wire SWCLK and SWDIO to a CMSIS-DAP probe. Two signals and a ground.</li>
 <li>Run OpenOCD with the supplied target config, then attach GDB.</li>
 <li>Expect examine to pass, then <code>load</code>, a breakpoint, and <code>stepi</code> to behave as they do over JTAG.</li>
 </ul>
 <p>A paid integration for one specific core, board and probe combination is available, with named software revisions, an agreed set of debug operations, acceptance tests, and a separate maintenance arrangement. The RTL stays open under its upstream licences either way.</p>
-<p>07 · Questions engineers ask</p>
 <h3 id="is_this_standards-compliant_risc-v_debug">Is this standards-compliant RISC-V debug?<a class="headerlink" href="#is_this_standards-compliant_risc-v_debug" title="Permanent link">&para;</a></h3>
 <p>It implements the RISC-V Debug Specification with a custom SWD transport. The Debug Module and hart behaviour are per specification. The transport is not, because no ratified version of the specification defines an SWD DTM.</p>
 <h3 id="do_i_have_to_change_my_core">Do I have to change my core?<a class="headerlink" href="#do_i_have_to_change_my_core" title="Permanent link">&para;</a></h3>
@@ -1792,14 +1586,9 @@
 <p>Not yet. Everything above is simulation and FPGA, on a Digilent Arty with a real probe. Silicon validation is the open item, and the honest answer to give an adopter.</p>
 <h3 id="what_does_it_cost_in_area">What does it cost in area?<a class="headerlink" href="#what_does_it_cost_in_area" title="Permanent link">&para;</a></h3>
 <p>The transport front-end is small. The expensive parts of RISC-V debug are the trigger comparators and, where used, the System Bus Access master, and those are decisions you already made when you chose a core configuration.</p>
-<h3 id="is_an_exposed_swd_port_a_security_problem">Is an exposed SWD port a security problem?<a class="headerlink" href="#is_an_exposed_swd_port_a_security_problem" title="Permanent link">&para;</a></h3>
-<p>Yes, on a production part. Two pins give full register and memory access. Plan for Debug Module authentication or a fuse or lifecycle lock before tape-out, not after.</p>
-<p>08 · Contact</p>
 <h2 id="where_it_would_help_to_talk">Where it would help to talk.<a class="headerlink" href="#where_it_would_help_to_talk" title="Permanent link">&para;</a></h2>
 <p>Three conversations are worth having: board and SoC teams feeling the pin-count pressure, debug tooling vendors who could help settle the upstreaming question, and education or research groups for whom two wires and a cheap probe is a lower barrier than a JTAG setup.</p>
-<p>https://saketsinha.de/VexRiscv-Debug/</p>
 <p><a href="https://saketsinha.de/VexRiscv-Debug/">Project overview and milestones</a> · <a href="https://saketsinha.de/standard-debug-vexriscv/">Standard debug in VexRiscv</a></p>
-<p>Saket Sinha · Berlin · sole developer SWD Debug support in VexRiscv · NLnet NGI0 Commons Fund, grant 2025-02-159 RTL merged under the upstream project licences. Upstream maintainer: Charles Papon (VexRiscv).</p>
 
 
 
