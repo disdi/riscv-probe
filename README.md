@@ -1,68 +1,22 @@
-SWD · RISC-V [Why](#why) [What your core needs](#needs) [What this supplies](#supplies) [Status](#status) [Evaluate](#evaluate)
+# SWD -  Open two-wire debug for RISC-V soft cores
 
-Proposal · Open two-wire debug for RISC-V soft cores
+## Debug a RISC-V core over two pins.
 
-# Debug a RISC-V core over two pins.
+An Arm Serial Wire Debug front-end working on RISC-V DebugBus that JTAG DTM already uses. The Debug Module and the CPU are unchanged.
 
-An Arm Serial Wire Debug front-end for VexRiscv and VexiiRiscv, merged upstream and driving the same RISC-V DebugBus the JTAG DTM already uses. The Debug Module and the CPU are unchanged.
+###  Why this exists
 
-Funded by NLnet NGI0 Commons Fund · grant 2025-02-159
-
-SWD write transaction, as the target sees it
-
-**1**Start
-
-**A**APnDP
-
-**W**RnW
-
-**A2**addr
-
-**A3**addr
-
-**P**parity
-
-**0**Stop
-
-**1**Park
-
-**→**Trn
-
-**ACK**3 bits
-
-**←**Trn
-
-**DATA\[31:0\]**LSB first
-
-**P**parity
-
-host drives SWDIO target drives SWDIO turnaround SWCLK supplied by the probe
-
-Pins2 versus 4 to 5
-
-UpstreamSpinalHDL, VexRiscv, VexiiRiscv, LiteX
-
-Validated onArtix-7, GDB over CMSIS-DAP
-
-SiliconNot yet taped out
-
-<a id="why"></a>
-
-01 · Why this exists
-
-## The ratified debug specification defines only a JTAG transport.
+**The ratified debug specification defines only a JTAG transport.**
 
 JTAG needs TCK, TMS, TDI and TDO, plus TRST where a reset line is wanted. Serial Wire Debug needs SWCLK and SWDIO. On a pin-constrained ASIC or a small FPGA board those two or three pins are contested, and on-chip debug is usually what gets cut.
 
-Adding SWD to the RISC-V Debug Specification was requested and never adopted, so Raspberry Pi shipped it as a custom Debug Transport Module, which the specification explicitly permits. This project takes the same route for the VexRiscv family, in the open, under the upstream licences.
+Adding SWD to the RISC-V Debug Specification was requested and never adopted. [riscv-debug-spec issue #785](https://github.com/riscv/riscv-debug-spec/issues/785) tracks the original request.
 
-Stated precisely
 
-This implements the RISC-V Debug Specification with a custom SWD transport. It is not an unqualified conformance claim, because no ratified version of the specification defines an SWD DTM. Describe it that way in any brief or datasheet.
+[Raspberry Pi](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) shipped it as a custom Debug Transport Module, which the specification explicitly permits.
 
-[riscv-debug-spec issue #785](https://github.com/riscv/riscv-debug-spec/issues/785) tracks the original request.
+This project takes the same route for any Riscv Processor, in the open, under the upstream licences.This implements the RISC-V Debug Specification with a custom SWD transport.
 
-02 · At a glance
 
 ### What changes
 
@@ -76,17 +30,11 @@ The Debug Module and the hart. Both are transport-agnostic in the specification,
 
 Stock GDB behaviour. Halt, examine registers and memory, set breakpoints, single-step, load code, all over an off-the-shelf CMSIS-DAP probe.
 
-<a id="needs"></a>
+### What a RISC-V processor needs to implement a debug interface.
 
-03 · Requirements
+Debug Bus in RISC-V has provision to be transport-agnostic, which is the reason adding SWD meant writing a front-end rather than touching the core.
 
-## What a RISC-V processor needs to implement a debug interface.
-
-Seven layers. Layers 2 and 3 are transport-agnostic, which is the reason adding SWD meant writing a front-end rather than touching the core.
-
-01
-
-### Debug Transport Module
+#### Debug Transport Module - This IP
 
 Converts a wire protocol into Debug Module Interface reads and writes. The specification defines a JTAG DTM with `IDCODE`, `dtmcs` and `dmi` registers, and permits custom transports.
 
@@ -96,9 +44,7 @@ Converts a wire protocol into Debug Module Interface reads and writes. The speci
 | Clock-domain crossing | required | The probe clock is asynchronous and intermittent. It stops when the probe idles, so the CDC cannot assume a free-running clock |
 | Error and retry semantics | required | The host must distinguish "busy, retry" from "failed" |
 
-02
-
-### Debug Module
+#### Debug Module - From CPU Provider
 
 A DMI slave holding the debug register file. Without at least one of a Program Buffer or System Bus Access, a debugger can read registers but not memory.
 
@@ -115,9 +61,9 @@ A DMI slave holding the debug register file. Without at least one of a Program B
 
 03
 
-### The hart
+### The hart - From CPU Provider
 
-The layer most often underestimated. Debug Mode is a distinct operating mode above M-mode, with its own entry paths, register set and exit instruction.
+Can be single or multiple HARTs. Debug Mode is a distinct operating mode above M-mode, with its own entry paths, register set and exit instruction.
 
 | Element | Need | Note |
 | --- | --- | --- |
@@ -130,29 +76,6 @@ The layer most often underestimated. Debug Mode is a distinct operating mode abo
 | `dret` | required | Exit from Debug Mode |
 | step, stopcount, stoptime | required | Single-step, and freezing counters and timers while halted |
 
-04
-
-### Trigger Module
-
-Optional in the specification. Without it there are no hardware breakpoints, which means no breakpoints in ROM or flash and no watchpoints. Each trigger costs comparator area, which is why implementations ship two to four rather than sixteen.
-
-| Element | Need | Note |
-| --- | --- | --- |
-| `tselect`, `tdata1..3`, `tinfo` | optional | Trigger register interface |
-| Address or data match trigger | optional | mcontrol class. The minimum for a usable hardware breakpoint |
-
-05
-
-### Reset
-
-| Element | Need | Note |
-| --- | --- | --- |
-| ndmreset | required | Resets the system but not the Debug Module |
-| hartreset | optional | Per-hart reset |
-| Halt-on-reset resethaltreq | in practice required | The only way to debug from the first instruction. Frequently omitted, then missed during boot bring-up |
-| Transport reset | required | SWD has no reset wire. Recovery is the line-reset sequence on SWDIO: at least 50 clocks high, then idle cycles |
-
-06
 
 ### What the SoC integrator must provide
 
@@ -166,7 +89,6 @@ The layer where SWD diverges from JTAG, and the one to settle before committing 
 | Live from power-up | required | A debug port that firmware has to enable cannot debug why the firmware did not run |
 | Access control | production | Two exposed pins give full register and memory access. Either DM authentication or a fuse or lifecycle lock |
 
-07
 
 ### Host side
 
@@ -180,56 +102,27 @@ The layer where SWD diverges from JTAG, and the one to settle before committing 
 
 04 · Division of labour
 
-## What this project supplies, and what you already have.
+## What this IP supplies, and what you already have.
 
 | Layer | Supplied by | Detail |
 | --- | --- | --- |
-| 01 Transport (DTM) | this project | SwdPhy, SwdDp register file, DMI gateway with clock crossing |
-| 02 Debug Module | unchanged | Existing VexRiscv Debug Module, reached over the same DebugBus |
-| 03 Hart support | unchanged | Debug Mode, debug CSRs and park loop already in the core |
-| 04 Triggers | unchanged | Whatever the core configuration already provides |
-| 05 Reset | partly this project | SWDIO line-reset handling in the transport; system reset unchanged |
-| 06 SoC integration | this project | LiteX `--with-swd-debug` brings SWDIO out to SoC pins; ElemRV integration merged |
-| 07 Host side | partly, see caveat | OpenOCD gateway and Black Magic Probe support |
+| Transport (DTM) | this project | SwdPhy, SwdDp register file, DMI gateway with clock crossing |
+| Debug Module | unchanged | Existing VexRiscv Debug Module, reached over the same DebugBus |
+| Hart support | unchanged | Debug Mode, debug CSRs and park loop already in the core |
+| SoC integration | this project | LiteX `--with-swd-debug` brings SWDIO out to SoC pins; ElemRV integration merged |
+| Host side | partly, see caveat | OpenOCD gateway and Black Magic Probe support |
 
-Open caveat
-
-Upstream OpenOCD does not support a RISC-V target behind an Arm SW-DP. Stock OpenOCD reaches raw-AP; the full RISC-V and GDB path currently needs a fork, as it does for Raspberry Pi. Whether this can be upstreamed rather than carried downstream is an open question and a good reason to talk if you build debug tooling.
-
-<a id="status"></a>
-
-05 · Status
-
-## Merged upstream, running on FPGA, not yet in silicon.
-
-| Area | Result | Upstream |
-| --- | --- | --- |
-| Core SWD implementation | SWD DTM wired end to end, verified in simulation | SpinalHDL #1956, #1966 |
-| VexRiscv | SWD interface in the core and derivatives | #483, #499, #500 |
-| VexiiRiscv | Same interface in the newer core family | #184, #188 |
-| LiteX SoC integration | `--with-cpu-jtag-debug` and `--with-swd-debug`; three-wire SWDIO to SoC pins | LiteX #2572, #2669; linux-on-litex-vexriscv #459 |
-| Commercial SoC | SWDIO exposed on ElemRV | elements-nafarr #72, elements-zibal #62 |
-| Host tooling | Raw-AP on stock OpenOCD; full RISC-V and GDB on a fork; Black Magic Probe support | openocd/vexriscv-gateway; Black Magic #2322 |
-| Hardware | Digilent Arty, MCU-Link CMSIS-DAP probe on a Pmod header. OpenOCD examine, GDB load, break and stepi. JTAG through BSCANE2 for comparison | — |
-
-Remaining work is the full regression matrix and documentation. Silicon validation on an open process is the next step and is not yet funded.
-
-<a id="evaluate"></a>
-
-06 · Evaluation
 
 ## What an evaluation looks like.
 
 The fastest route for a board or SoC team is a LiteX build, because two-wire debug is one flag away.
 
-- Build a LiteX SoC with `--with-swd-debug` for your target board.
+- Build a SoC with this SWD IP for your target board.
 - Wire SWCLK and SWDIO to a CMSIS-DAP probe. Two signals and a ground.
 - Run OpenOCD with the supplied target config, then attach GDB.
 - Expect examine to pass, then `load`, a breakpoint, and `stepi` to behave as they do over JTAG.
 
 A paid integration for one specific core, board and probe combination is available, with named software revisions, an agreed set of debug operations, acceptance tests, and a separate maintenance arrangement. The RTL stays open under its upstream licences either way.
-
-07 · Questions engineers ask
 
 ### Is this standards-compliant RISC-V debug?
 
@@ -259,18 +152,9 @@ Not yet. Everything above is simulation and FPGA, on a Digilent Arty with a real
 
 The transport front-end is small. The expensive parts of RISC-V debug are the trigger comparators and, where used, the System Bus Access master, and those are decisions you already made when you chose a core configuration.
 
-### Is an exposed SWD port a security problem?
-
-Yes, on a production part. Two pins give full register and memory access. Plan for Debug Module authentication or a fuse or lifecycle lock before tape-out, not after.
-
-08 · Contact
-
 ## Where it would help to talk.
 
 Three conversations are worth having: board and SoC teams feeling the pin-count pressure, debug tooling vendors who could help settle the upstreaming question, and education or research groups for whom two wires and a cheap probe is a lower barrier than a JTAG setup.
 
-https://saketsinha.de/VexRiscv-Debug/
-
 [Project overview and milestones](https://saketsinha.de/VexRiscv-Debug/) · [Standard debug in VexRiscv](https://saketsinha.de/standard-debug-vexriscv/)
 
-Saket Sinha · Berlin · sole developer SWD Debug support in VexRiscv · NLnet NGI0 Commons Fund, grant 2025-02-159 RTL merged under the upstream project licences. Upstream maintainer: Charles Papon (VexRiscv).
