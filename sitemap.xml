@@ -1,67 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://disdi.github.io/static-page-template/</loc>
+         <loc>https://disdi.github.io/riscv-probe/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/license/</loc>
+         <loc>https://disdi.github.io/riscv-probe/license/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/material-for-mkdocs/</loc>
+         <loc>https://disdi.github.io/riscv-probe/material-for-mkdocs/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/extensions/code-hilite/</loc>
+         <loc>https://disdi.github.io/riscv-probe/extensions/code-hilite/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/extensions/footnote/</loc>
+         <loc>https://disdi.github.io/riscv-probe/extensions/footnote/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/extensions/mathjax/</loc>
+         <loc>https://disdi.github.io/riscv-probe/extensions/mathjax/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/getting-started/docker/</loc>
+         <loc>https://disdi.github.io/riscv-probe/getting-started/docker/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/getting-started/download-boilerplate/</loc>
+         <loc>https://disdi.github.io/riscv-probe/getting-started/download-boilerplate/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/getting-started/invoke/</loc>
+         <loc>https://disdi.github.io/riscv-probe/getting-started/invoke/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/getting-started/pip/</loc>
+         <loc>https://disdi.github.io/riscv-probe/getting-started/pip/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/getting-started/pipenv/</loc>
+         <loc>https://disdi.github.io/riscv-probe/getting-started/pipenv/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/hosting-and-deployment/aws-amplify-console/</loc>
+         <loc>https://disdi.github.io/riscv-probe/hosting-and-deployment/aws-amplify-console/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/hosting-and-deployment/combinations/</loc>
+         <loc>https://disdi.github.io/riscv-probe/hosting-and-deployment/combinations/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/hosting-and-deployment/github-pages/</loc>
+         <loc>https://disdi.github.io/riscv-probe/hosting-and-deployment/github-pages/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/hosting-and-deployment/gitlab-pages/</loc>
+         <loc>https://disdi.github.io/riscv-probe/hosting-and-deployment/gitlab-pages/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
     <url>
-         <loc>https://disdi.github.io/static-page-template/hosting-and-deployment/netlify/</loc>
+         <loc>https://disdi.github.io/riscv-probe/hosting-and-deployment/netlify/</loc>
          <lastmod>2026-11-08</lastmod>
     </url>
 </urlset>
