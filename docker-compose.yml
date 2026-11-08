@@ -1,0 +1,16 @@
+services:
+  mkdocs:
+    build: .
+    image: mkdocs-material-boilerplate
+    container_name: mkdocs_material_boilerplate
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/docs
+    working_dir: /docs
+    stdin_open: true
+    tty: true
+    command:
+      - mkdocs
+      - serve
+      - --dev-addr=0.0.0.0:8000

@@ -1,0 +1,6 @@
+.git
+.github
+.venv
+site
+**/__pycache__
+**/*.pyc
