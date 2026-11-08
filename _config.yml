@@ -1,2 +1,7 @@
-title: Debug a RISC-V core over two pins.
+title: RISC-V Probe
 theme: jekyll-theme-primer
+defaults:
+  - scope:
+      path: README.md
+    values:
+      title: RISC-V Probe
