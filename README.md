@@ -138,7 +138,7 @@ Any CMSIS-DAP probe. Validated with an NXP MCU-Link and with Black Magic Probe, 
 
 ### Does stock OpenOCD work?
 
-For raw-AP access, yes. For the full RISC-V target with GDB, not yet. That path needs the fork, which is the same position Raspberry Pi is in.
+For raw-AP access, yes. For the full RISC-V target with GDB, not yet. That path needs the fork, same as Raspberry Pi.
 
 ### Has it run in silicon?
 
