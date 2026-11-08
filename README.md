@@ -102,11 +102,11 @@ The layer where SWD diverges from JTAG, and the one to settle before committing 
 
 | Layer | Supplied by | Detail |
 | --- | --- | --- |
-| Transport (DTM) | this project | SwdPhy, SwdDp register file, DMI gateway with clock crossing |
+| Transport (DTM) | this IP | SwdPhy, SwdDp register file, DMI gateway with clock crossing |
 | Debug Module | unchanged | Existing VexRiscv Debug Module, reached over the same DebugBus |
 | Hart support | unchanged | Debug Mode, debug CSRs and park loop already in the core |
-| SoC integration | this project | LiteX `--with-swd-debug` brings SWDIO out to SoC pins; ElemRV integration merged |
-| Host side | partly, see caveat | OpenOCD gateway and Black Magic Probe support |
+| SoC integration | supported | brings SWDIO out to SoC pins |
+| Host side | supported | OpenOCD gateway and Black Magic Probe support |
 
 
 ## What an evaluation looks like.
