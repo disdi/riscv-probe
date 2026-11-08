@@ -3,10 +3,13 @@ image:
 
 pages:
   script:
-    - mkdocs build --config-file ./mkdocs-sample.yml
+    - mkdocs build --strict --config-file ./mkdocs-sample.yml
+    - test -s site/index.html
+    - grep -q "Debug a RISC-V core over two pins" site/index.html
     - mv site public
   artifacts:
     paths:
       - public
   only:
+    - master
     - main

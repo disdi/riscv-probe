@@ -46,6 +46,8 @@ Validated onArtix-7, GDB over CMSIS-DAP
 
 SiliconNot yet taped out
 
+<a id="why"></a>
+
 01 · Why this exists
 
 ## The ratified debug specification defines only a JTAG transport.
@@ -73,6 +75,8 @@ The Debug Module and the hart. Both are transport-agnostic in the specification,
 ### What you get back
 
 Stock GDB behaviour. Halt, examine registers and memory, set breakpoints, single-step, load code, all over an off-the-shelf CMSIS-DAP probe.
+
+<a id="needs"></a>
 
 03 · Requirements
 
@@ -172,6 +176,8 @@ The layer where SWD diverges from JTAG, and the one to settle before committing 
 | GDB remote serial protocol | required | Standard client, no patches |
 | A probe speaking the transport | required | CMSIS-DAP for SWD. Validated here with MCU-Link and Black Magic Probe |
 
+<a id="supplies"></a>
+
 04 · Division of labour
 
 ## What this project supplies, and what you already have.
@@ -190,6 +196,8 @@ Open caveat
 
 Upstream OpenOCD does not support a RISC-V target behind an Arm SW-DP. Stock OpenOCD reaches raw-AP; the full RISC-V and GDB path currently needs a fork, as it does for Raspberry Pi. Whether this can be upstreamed rather than carried downstream is an open question and a good reason to talk if you build debug tooling.
 
+<a id="status"></a>
+
 05 · Status
 
 ## Merged upstream, running on FPGA, not yet in silicon.
@@ -205,6 +213,8 @@ Upstream OpenOCD does not support a RISC-V target behind an Arm SW-DP. Stock Ope
 | Hardware | Digilent Arty, MCU-Link CMSIS-DAP probe on a Pmod header. OpenOCD examine, GDB load, break and stepi. JTAG through BSCANE2 for comparison | — |
 
 Remaining work is the full regression matrix and documentation. Silicon validation on an open process is the next step and is not yet funded.
+
+<a id="evaluate"></a>
 
 06 · Evaluation
 

@@ -39,7 +39,18 @@ jobs:
       - name: Install dependencies
         run: python3 -m pip install -r ./requirements.txt
 
-      - run: mkdocs build --config-file ./mkdocs-sample.yml
+      - name: Render the static site
+        run: |
+          mkdocs build --strict --config-file ./mkdocs-sample.yml
+          test -s site/index.html
+          grep -q "Debug a RISC-V core over two pins" site/index.html
+
+      - name: Upload rendered site
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site
+          if-no-files-found: error
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main'

@@ -1,7 +1,7 @@
 {
-    "short_name": "MkDocs",
-    "name": "MkDocs Material Boilerplate",
-    "description": "MkDocs Material Boilerplate (Starter Kit) - Deploy documentation to hosting platforms (Netlify, GitHub Pages, GitLab Pages, and AWS Amplify Console) with Docker, pipenv, and GitHub Actions.",
+    "short_name": "RISC-V Probe",
+    "name": "RISC-V Probe",
+    "description": "Open two-wire debug for RISC-V soft cores. An SWD front-end for VexRiscv and VexiiRiscv.",
     "lang": "en-US",
     "icons": [
         {
