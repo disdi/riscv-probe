@@ -12,8 +12,9 @@ JTAG needs TCK, TMS, TDI and TDO, plus TRST where a reset line is wanted. Serial
 
 Adding SWD to the RISC-V Debug Specification was requested and never adopted. [riscv-debug-spec issue #785](https://github.com/riscv/riscv-debug-spec/issues/785) tracks the original request.
 
-
 [Raspberry Pi](https://www.raspberrypi.com/documentation/microcontrollers/debug-probe.html) shipped it as a custom Debug Transport Module, which the specification explicitly permits.
+
+![RPI SWD setup](images/RPI-Debug-Probe.png)
 
 This project takes the same route for any Riscv Processor, in the open, under the upstream licences.This implements the RISC-V Debug Specification with a custom SWD transport.
 
@@ -59,8 +60,6 @@ A DMI slave holding the debug register file. Without at least one of a Program B
 | `abstractauto` | optional | Autoexec on data access. The difference between tolerable and glacial block download |
 | Authentication `authdata` | optional | Needed on production parts; see layer 06 |
 
-03
-
 ### The hart - From CPU Provider
 
 Can be single or multiple HARTs. Debug Mode is a distinct operating mode above M-mode, with its own entry paths, register set and exit instruction.
@@ -98,9 +97,6 @@ The layer where SWD diverges from JTAG, and the one to settle before committing 
 | GDB remote serial protocol | required | Standard client, no patches |
 | A probe speaking the transport | required | CMSIS-DAP for SWD. Validated here with MCU-Link and Black Magic Probe |
 
-<a id="supplies"></a>
-
-04 · Division of labour
 
 ## What this IP supplies, and what you already have.
 
